@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import goalsImg from "./assets/goals.jpg";
 import { useState } from "react";
 import CourseGoalList from "./components/CourseGoalList";
+import NewGoal from "./components/NewGoal";
 export type CourseGoal = {
   title: string;
   description: string;
@@ -20,16 +21,17 @@ export default function App() {
       return [...prevGoals, newGoals];
     });
   }
+  function handleDeleteGoal(id: number){
+    setGoals(prevGoals => prevGoals.filter((goal)=> goal.id !== id))
+  }
   return (
     <main>
       <Header image={{ src: goalsImg, alt: "a list of goals" }}>
         <h1>your course goals</h1>
       </Header>
-      <button onClick={handleAddGoal}>add goal</button>
-     <CourseGoalList goals={goals}/>
-      <CourseGoal title="hello" description="salam">
-        <p>hello</p>
-      </CourseGoal>
+      <NewGoal onAddGoal={handleAddGoal}/>
+     <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal}/>
+      
     </main>
   );
 }
