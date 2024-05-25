@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { CourseGoal as CGoal}  from "../App";
 import CourseGoal from "./CourseGoal"
 type CourseGoalListProps = {
@@ -6,7 +6,7 @@ type CourseGoalListProps = {
   
 };
 function CourseGoalList({goals}:CourseGoalListProps) {
-  // const [goals, setGoals] = useState<CourseGoal[]>([]);
+
   return (
     <>
       {goals.map((goal) => (
