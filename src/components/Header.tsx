@@ -1,14 +1,14 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
-type HeaderProps = {children:ReactNode, image:{ src:string, alt:string}}
-function Header(props:HeaderProps) {
+type HeaderProps = { children: ReactNode; image: { src: string; alt: string } };
+
+function Header({ children, image }: HeaderProps) {
   return (
     <header>
-      <img src={props.image.src} alt={props.image.alt} />
-      {props.children}
-
+      <img {...image} />
+      {children}
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
