@@ -1,17 +1,15 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
-type CourseGoalProps = {
+type CourseGoalProps = PropsWithChildren<{
   title: string;
   description: string;
-  children: ReactNode;
-};
-export default function CourseGoal(props: CourseGoalProps) {
+}>;
+export default function CourseGoal({ title, description }: CourseGoalProps) {
   return (
     <article>
       <div>
-        <h2>{props.title}</h2>
-        <p>{props.description}</p>
-        {props.children}
+        <h2>{title}</h2>
+        <p>{description}</p>
       </div>
       <button>delete</button>
     </article>
