@@ -1,29 +1,10 @@
-import { ReactNode } from "react";
-import PropTypes from "prop-types";
-interface Head {
-  image: {
-    src: string;
-    alt: string;
-  };
-  children: ReactNode;
-}
-function Header({ image, children }: Head) {
+import Button from "./UI/Button.tsx";
+
+export default function Header() {
   return (
     <header>
-      <img
-        // src={image.src} alt={image.alt}
-        {...image}
-      />
-      <p>{image.alt}</p>
-      <p>{children}</p>
+      <h1>ReactTimer</h1>
+      <Button>Stop Timers</Button>
     </header>
   );
 }
-
-Header.propTypes = {
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  children: PropTypes.element,
-};
-
-export default Header;
