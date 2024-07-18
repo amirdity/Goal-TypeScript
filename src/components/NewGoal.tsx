@@ -1,28 +1,29 @@
-import { useRef, type FormEvent } from "react";
+import { useRef } from "react";
 type NewGoalProps = {
-  onAddGoal: (goal: string, summary: string) => void;
-};
-function NewGoal({onAddGoal}: NewGoalProps) {
-  const goal = useRef<HTMLInputElement>(null);
+  onAddGoal: (goal: string ,summery: string) => void;
+
+}
+function NewGoal({onAddGoal}:NewGoalProps) {
+  const goal = useRef<HTMLInputElement>(null)
   const summary = useRef<HTMLInputElement>(null);
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const enteredGoal = goal.current!.value;
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event?.preventDefault();
+    const enteredGoal = goal.current!.value
     const enteredSummary = summary.current!.value;
-    onAddGoal(enteredGoal, enteredSummary)
+    onAddGoal(enteredGoal, enteredSummary);
   }
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <p>
-        <label htmlFor="goal">your goal</label>
-        <input type="text" id="goal" ref={goal} />
+        <label htmlFor="goal">Your goal</label>
+        <input type="text" id="goal" name="goal" ref={goal} />
       </p>
       <p>
-        <label htmlFor="summary">short summary</label>
-        <input type="text" name="" id="summary" ref={summary} />
+        <label htmlFor="summary">Short summary</label>
+        <input type="text" id="summary" name="summary" ref={summary} />
       </p>
       <p>
-        <button>add goal</button>
+        <button onClick={()=>onAddGoal}>Add Goal</button>
       </p>
     </form>
   );

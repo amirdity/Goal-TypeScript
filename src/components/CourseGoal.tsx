@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
 import React from "react";
 interface Props {
+  id: number
   title: string;
-  
+  onDelete: (id: number) => void;
   children: React.ReactNode
 }
 // function CourseGoal(props: Props) {
 
 function CourseGoal({
+  id,
   title,
-  
+  onDelete,
   children
 }:Props
   // {
@@ -26,7 +28,7 @@ function CourseGoal({
         
         <p>{children }</p>
       </div>
-      <button>Delete</button>
+      <button onClick={()=>onDelete(id)}>Delete</button>
     </article>
   );
 }

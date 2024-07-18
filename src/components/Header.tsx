@@ -9,11 +9,14 @@ interface Head {
 }
 function Header({ image, children }: Head) {
   return (
-    <div>
-      <p>{image.src}</p>
+    <header>
+      <img
+        // src={image.src} alt={image.alt}
+        {...image}
+      />
       <p>{image.alt}</p>
       <p>{children}</p>
-    </div>
+    </header>
   );
 }
 
