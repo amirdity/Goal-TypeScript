@@ -11,6 +11,7 @@ export default function CourseGoalList({
   onDelete,
 }: CourseGoalListProps) {
   if (goals.length === 0) {
+    // if you use return ... other components will be removed
     return (
       <InfoBox mode="hint">
         You have no course goals yet. start adding some!
@@ -19,11 +20,11 @@ export default function CourseGoalList({
   }
   let warningBox: React.ReactNode;
   if (goals.length >= 4) {
-    return (warningBox = (
-      <InfoBox mode="warning">
+    warningBox = (
+      <InfoBox mode="warning" serverity="medium">
         You're collecting a lot of goals . Dont put too much on your plate!
       </InfoBox>
-    ));
+    );
   }
   return (
     <>
@@ -33,7 +34,7 @@ export default function CourseGoalList({
         {goals.map((goal) => (
           <li key={goal.id}>
             <CourseGoal title={goal.title} onDelete={onDelete} id={goal.id}>
-              <p>{goal.description} </p>
+              <p>{goal.description}</p>
             </CourseGoal>
           </li>
         ))}

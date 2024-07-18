@@ -1,20 +1,26 @@
 import React from "react";
-type InfoBosProps = {
-  mode: "hint" | "warning";
+type HintBoxProps = {
+  mode: "hint";
   children: React.ReactNode;
 };
-function InfoBox({ children, mode }: InfoBosProps) {
-  if (mode === "hint") {
+type warningBoxProps = {
+  mode: "warning";
+  children: React.ReactNode;
+  serverity: "low" | "medium" | "high";
+};
+type infoBoxProps = HintBoxProps | warningBoxProps;
+function InfoBox(props: infoBoxProps) {
+  if (props.mode === "hint") {
     return (
       <aside className="infobox infobox-hint">
-        <p>{children}</p>
+        <p>{props.children}</p>
       </aside>
     );
   }
   return (
-    <aside className="infobox infobox-warning warning--medium">
+    <aside className={`infobox infobox-warning warning--${props.serverity}`}>
       <p>Warning</p>
-      <p>{children}</p>
+      <p>{props.children}</p>
     </aside>
   );
 }

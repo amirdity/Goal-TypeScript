@@ -1,14 +1,13 @@
 import { useRef } from "react";
 type NewGoalProps = {
-  onAddGoal: (goal: string ,summery: string) => void;
-
-}
-function NewGoal({onAddGoal}:NewGoalProps) {
-  const goal = useRef<HTMLInputElement>(null)
+  onAddGoal: (goal: string, summery: string) => void;
+};
+function NewGoal({ onAddGoal }: NewGoalProps) {
+  const goal = useRef<HTMLInputElement>(null);
   const summary = useRef<HTMLInputElement>(null);
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event?.preventDefault();
-    const enteredGoal = goal.current!.value
+    const enteredGoal = goal.current!.value;
     const enteredSummary = summary.current!.value;
     onAddGoal(enteredGoal, enteredSummary);
   }
@@ -23,7 +22,7 @@ function NewGoal({onAddGoal}:NewGoalProps) {
         <input type="text" id="summary" name="summary" ref={summary} />
       </p>
       <p>
-        <button onClick={()=>onAddGoal}>Add Goal</button>
+        <button onClick={() => onAddGoal}>Add Goal</button>
       </p>
     </form>
   );
