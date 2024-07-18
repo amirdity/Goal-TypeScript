@@ -1,22 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  min-height: 100vh;
-  background: linear-gradient(#f0f6f8, #e0e1e7);
+  /* min-height: 100vh; */
+  background: linear-gradient(45deg, #0d11eb, #e73c7e, #0d11eb);
+  background-size: 200% 200%;
+  animation: gradient 5s ease infinite;
 }
 
 main {
   width: 90%;
   max-width: 40rem;
-  margin: 3rem auto;
+  margin: 2rem auto;
   padding: 2rem;
   background-color: #3a4346;
   color: #f0f6f8;
@@ -81,7 +83,7 @@ form button:hover {
 
 ul {
   list-style: none;
-  margin: 0;
+  margin-top: 10px;
   padding: 0;
   display: grid;
   gap: 1rem;
@@ -93,6 +95,7 @@ li {
   padding: 1rem;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  margin: 5px;
 }
 
 li article {
@@ -130,4 +133,14 @@ li button:hover {
   text-align: center;
   color: #acd1ce;
 }
-
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
