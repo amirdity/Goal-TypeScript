@@ -1,16 +1,17 @@
-
-import './App.css'
-import Input from './components/Input'
+import AddTimer from './components/AddTimer.tsx';
+import Header from './components/Header.tsx';
+import Timers from './components/Timers.tsx';
 
 function App() {
-  
-
   return (
-    <main>
-      <Input id="name" label="Yout name" />{" "}
-      <Input id="age" label="Yout age" />
-    </main>
+    <>
+      <Header />
+      <main>
+        <AddTimer />
+        <Timers />
+      </main>
+    </>
   );
 }
 
-export default App
+export default App;
