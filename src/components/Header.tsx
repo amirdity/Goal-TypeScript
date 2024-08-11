@@ -1,10 +1,18 @@
-import Button from "./UI/Button.tsx";
+import { type ReactNode } from "react";
 
-export default function Header() {
+interface Image {
+  image: {
+    src: string;
+    alt: string;
+  };
+  children: ReactNode;
+}
+
+export default function Header({ image,children }: Image) {
   return (
     <header>
-      <h1>ReactTimer</h1>
-      <Button>Stop Timers</Button>
+      <img {...image} />
+      {children}
     </header>
   );
 }

@@ -1,35 +1,22 @@
-import PropTypes from "prop-types";
-import React from "react";
-interface Props {
-  id: number;
-  title: string;
-  onDelete: (id: number) => void;
-  children: React.ReactNode;
-}
-// function CourseGoal(props: Props) {
+import { PropsWithChildren } from "react";
 
-function CourseGoal({ id, title, onDelete, children }: Props) // {
-// title: string;
-// description: string;
+// interface CourseGoalType {
+//   title: string;
+//   children: ReactNode;
 // }
-{
+export default function CourseGoal({
+  title,
+  children,
+  onDelete,id
+}: PropsWithChildren<{ title: string, onDelete: (id: number) => void,id:number }>) {
+  
   return (
     <article>
       <div>
-        {/* <h2>{props.title}</h2>
-        <p>{props.description}</p> */}
         <h2>{title}</h2>
-
         <p>{children}</p>
       </div>
-      <button onClick={() => onDelete(id)}>Delete</button>
+      <button onClick={()=>onDelete(id)}>حذف کردن</button>
     </article>
   );
 }
-
-CourseGoal.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-};
-
-export default CourseGoal;
